@@ -206,5 +206,9 @@ nav{
         display: grid;
         grid-template-rows: auto 1fr 1fr;
     }
+
+    .desktop-menu{
+        display: none;
+    }
     
 }
