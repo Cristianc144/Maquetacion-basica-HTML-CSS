@@ -93,7 +93,7 @@ function renderProducts(productList) {
         const figure = document.createElement('figure')
     
         imgCart = document.createElement('img')
-        imgCart.setAttribute('src', './curso-frontend-developer-practico-main/icons/bt_add_to_cart.svg')
+        imgCart.setAttribute('src', './Maquetacion/curso-frontend-developer-practico-main/icons/bt_add_to_cart.svg')
     
         figure.appendChild(imgCart)
     
