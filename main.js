@@ -2,12 +2,15 @@ const navbarEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
 const menu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
+const closeIcon = document.querySelector('.product-detail-close')
 const menuCarrito = document.querySelector('.navbar-shopping-cart')
 const productDetail = document.querySelector('.product-detail')
+const detalles = document.getElementById('detail')
 const arrow = document.getElementById('arrow')
 const cardsContainer = document.querySelector('.cards-container')
 
 const productList = []
+
 productList.push({
     name: 'Bike',
     precio: 120,
@@ -28,6 +31,8 @@ escuchadorEventosToggle(navbarEmail, toggleDesktopMenu)
 escuchadorEventosToggle(menu, toggleMenu)
 escuchadorEventosToggle(menuCarrito, toggleCarrito)
 escuchadorEventosToggle(arrow, toggleCarrito)
+escuchadorEventosToggle(cardsContainer, abrirDetalles)
+escuchadorEventosToggle(closeIcon, closeDetail)
 
 renderProducts(productList)
 
@@ -49,6 +54,9 @@ function toggleMenu() {
     if (!mobileMenu.classList.contains('inactive-mobile') && !productDetail.classList.contains('inactive-detail')) {
         productDetail.classList.toggle('inactive-detail')
     }
+    if (!detalles.classList.contains('inactive') && !mobileMenu.classList.contains('inactive-mobile')) {
+        detalles.classList.add('inactive')
+    }
 }
 
 function toggleCarrito() {
@@ -56,6 +64,9 @@ function toggleCarrito() {
 
     if (!mobileMenu.classList.contains('inactive-mobile') && !productDetail.classList.contains('inactive-detail')) {
         mobileMenu.classList.toggle('inactive-mobile')
+    }
+    if (!detalles.classList.contains('inactive') && !productDetail.classList.contains('inactive-detail')) {
+        detalles.classList.add('inactive')
     }
 }
 
@@ -97,4 +108,14 @@ function renderProducts(productList) {
     
         cardsContainer.appendChild(productCard)
     }
+}
+
+function abrirDetalles() {
+    detalles.classList.remove('inactive')
+    productDetail.classList.add('inactive-detail')
+
+}
+
+function closeDetail() {
+    detalles.classList.add('inactive')
 }
